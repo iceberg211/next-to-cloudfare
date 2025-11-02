@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## 📚 状态管理学习区（中文）
+
+本项目已集成三种常见状态管理/数据获取方案的独立示例：
+
+- React Query: `/learn/react-query`（请求状态、缓存与去重）
+- Jotai: `/learn/jotai`（原子化状态与派生原子）
+- Recoil: `/learn/recoil`（Atom + Selector 依赖图）
+
+进入 `/learn` 可查看目录页与导航。
+
+启动：
+
+```bash
+pnpm dev
+```
+
+在浏览器打开 `http://localhost:3000/learn` 即可开始学习。
