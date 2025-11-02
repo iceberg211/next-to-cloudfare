@@ -2,9 +2,22 @@
 name = "next-to-cloudflare"
 main = ".open-next/worker.js"
 compatibility_date = "2025-01-01"
-compatibility_flags = ["nodejs_compat"]
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 
-# Uncomment and configure if you need KV, D1, R2, or other bindings
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[[services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "next-to-cloudflare"
+
+# Uncomment and configure if you need R2 for ISR caching
+# [[r2_buckets]]
+# binding = "NEXT_INC_CACHE_R2_BUCKET"
+# bucket_name = "your-bucket-name"
+
+# Uncomment and configure if you need KV, D1, or other bindings
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "your-kv-namespace-id"
@@ -13,7 +26,3 @@ compatibility_flags = ["nodejs_compat"]
 # binding = "DB"
 # database_name = "my-database"
 # database_id = "your-database-id"
-
-# [[r2_buckets]]
-# binding = "MY_BUCKET"
-# bucket_name = "my-bucket"

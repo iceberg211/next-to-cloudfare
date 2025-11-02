@@ -12,6 +12,7 @@
 .open-next
 .claude
 # testing
+.wrangler
 /coverage
 
 # next.js
