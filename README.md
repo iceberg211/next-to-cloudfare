@@ -44,6 +44,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - React Query: `/learn/react-query`（请求状态、缓存与去重）
 - Jotai: `/learn/jotai`（原子化状态与派生原子）
 - Recoil: `/learn/recoil`（Atom + Selector 依赖图）
+- Zustand: `/learn/zustand`（多切片 Store、订阅与持久化）
 
 进入 `/learn` 可查看目录页与导航。
 

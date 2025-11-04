@@ -5,7 +5,7 @@ export default function LearnIndex() {
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold">选择一个库开始学习</h2>
       <p className="text-zinc-600">以下页面彼此独立，分别展示 React Query、Jotai、Recoil 的最小可运行示例与关键概念。</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Link href="/learn/react-query" className="rounded-lg border bg-white p-4 hover:shadow">
           <h3 className="font-medium">React Query</h3>
           <p className="text-sm text-zinc-600 mt-1">请求状态、缓存与重复请求去重</p>
@@ -18,8 +18,11 @@ export default function LearnIndex() {
           <h3 className="font-medium">Recoil</h3>
           <p className="text-sm text-zinc-600 mt-1">Atom/Selector 与依赖图</p>
         </Link>
+        <Link href="/learn/zustand" className="rounded-lg border bg-white p-4 hover:shadow">
+          <h3 className="font-medium">Zustand</h3>
+          <p className="text-sm text-zinc-600 mt-1">轻量 Store、多中间件与订阅模式</p>
+        </Link>
       </div>
     </div>
   );
 }
-
