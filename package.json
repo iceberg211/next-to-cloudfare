@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.6",
+    "immer": "^10.2.0",
     "jotai": "^2.15.1",
     "next": "15.5.6",
     "react": "^19",
