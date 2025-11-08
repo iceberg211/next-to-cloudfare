@@ -1,56 +1,27 @@
 "use client";
 
-// 高级 Jotai 学习页：
-// - 展示两个并列的工作区（A：持久化；B：内存）
-// - 每个工作区都使用自定义 store + 独立 Provider
-// - 相同的 UI 通过“原子工厂”创建的不同原子集合来复用
+import Link from "next/link";
 
-import { Provider, createStore } from "jotai";
-import { useMemo } from "react";
-import { TodoApp, useTodoAtomsMemo } from "./AdvancedApp";
-
-export default function JotaiAdvancedPage() {
-  // 创建两个独立 store（互不影响）
-  const storeA = useMemo(() => createStore(), []);
-  const storeB = useMemo(() => createStore(), []);
-
-  // 为不同工作区创建“原子集合”：
-  // A 使用 namespace 以启用 localStorage 持久化；B 不传 namespace，仅内存保存
-  const atomsA = useTodoAtomsMemo("workspace-A");
-  const atomsB = useTodoAtomsMemo();
+export default function JotaiIndex() {
+  const steps = [
+    { href: "/learn/jotai/step-1-basics", title: "Step 1 基础原子", desc: "atom/useAtom：最小状态单元与多组件同步" },
+    { href: "/learn/jotai/step-2-derived", title: "Step 2 派生与精确订阅", desc: "selectAtom：按需重算与优化渲染" },
+    { href: "/learn/jotai/step-3-split", title: "Step 3 列表与 splitAtom", desc: "项级原子，细粒度渲染" },
+    { href: "/learn/jotai/step-4-async", title: "Step 4 异步原子 + Suspense", desc: "Promise 原子、加载/错误与重试" },
+    { href: "/learn/jotai/step-5-advanced", title: "Step 5 高级工作区", desc: "多 Store/Provider、持久化与批量更新" },
+  ];
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-semibold">Jotai 复杂应用示例</h2>
-      <p className="text-zinc-600">
-        本页演示 Jotai 的
-        Provider/Store、派生原子、精确订阅（selectAtom）、数组拆分（splitAtom）、
-        异步原子 + Suspense、以及从 store 外部直接操作原子等特性。
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* 工作区 A：持久化 + 自定义 Store */}
-        <Provider store={storeA}>
-          <TodoApp
-            atoms={atomsA}
-            storeLabel="工作区 A（本地持久化）"
-            store={storeA}
-          />
-        </Provider>
-
-        {/* 工作区 B：仅内存 + 自定义 Store */}
-        <Provider store={storeB}>
-          <TodoApp
-            atoms={atomsB}
-            storeLabel="工作区 B（仅内存）"
-            store={storeB}
-          />
-        </Provider>
-      </div>
-
-      <div className="text-xs text-zinc-500">
-        提示：两个工作区的状态相互隔离；A 的数据刷新后仍会保留（使用
-        localStorage），B 则不会。
+      <h2 className="text-2xl font-semibold">Jotai 学习索引</h2>
+      <p className="text-zinc-600">从基础到高级逐步掌握 Jotai，建议按顺序浏览：</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {steps.map((s) => (
+          <Link key={s.href} href={s.href} className="rounded-lg border bg-white p-4 hover:shadow">
+            <h3 className="font-medium">{s.title}</h3>
+            <p className="text-sm text-zinc-600 mt-1">{s.desc}</p>
+          </Link>
+        ))}
       </div>
     </div>
   );
