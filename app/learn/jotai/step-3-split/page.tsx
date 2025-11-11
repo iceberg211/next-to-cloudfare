@@ -1,8 +1,7 @@
 "use client";
-
-import { atom } from "jotai";
+import { atom, useAtom } from "jotai";
 import { splitAtom } from "jotai/utils";
-import { useAtom } from "jotai";
+import type { PrimitiveAtom } from "jotai";
 
 type Item = { id: string; title: string; done: boolean };
 
@@ -52,7 +51,6 @@ export default function Step3Split() {
   );
 }
 
-import type { PrimitiveAtom } from "jotai";
 
 function ItemRow({ atomRef }: { atomRef: PrimitiveAtom<Item> }) {
   const [item, setItem] = useAtom(atomRef);

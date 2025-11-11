@@ -51,7 +51,7 @@ class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { error?: Error }
 > {
-  constructor(props: any) {
+  constructor(props: { children: React.ReactNode }) {
     super(props);
     this.state = {};
   }
@@ -64,6 +64,6 @@ class ErrorBoundary extends React.Component<
         <div className="text-sm text-red-600">{this.state.error.message}</div>
       );
     }
-    return this.props.children as any;
+    return this.props.children;
   }
 }
